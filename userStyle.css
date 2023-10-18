@@ -1,0 +1,315 @@
+/* a minimalist set of CSS resets */
+
+/* default to border-box */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+@font-face {
+  font-family: "YoungSerif";
+  src: url("https://cdn.glitch.global/2afdc074-1b74-4ebe-a01b-7e6b42b04ddf/YoungSerif-Regular.ttf?v=1697386142696")
+    format("truetype");
+}
+
+* {
+  box-sizing: inherit;
+  font-family: "YoungSerif", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* adjust typography defaults */
+body {
+  margin: 1rem;
+  line-height: 1.5;
+  background-color: #fcfcf7;
+}
+
+/* images and videos max out at full width */
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+.header {
+  width: 100%;
+  position: relative;
+  background-image: url(https://cdn.glitch.global/2afdc074-1b74-4ebe-a01b-7e6b42b04ddf/Untitled%20design.png?v=1697390878607);
+  background-size: cover;
+  border-radius: 15px;
+}
+
+#myBtnContainer {
+  padding-top: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav img {
+  width: 150px;
+}
+
+.nav-links {
+  flex: 1;
+  text-align: right;
+}
+
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.nav-links ul li a {
+  color: #fcfcf7;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav-links ul li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #ffffff;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+
+.nav-links ul li:hover::after {
+  width: 100%;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0 auto;
+  text-decoration: none;
+  color: #c4174f;
+  border: 1px solid #c4174f;
+  padding: 12px 34px;
+  font-size: 13px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.btn:hover {
+  border: 1px solid #c4174f;
+  background: #efa1af;
+  transition: 1s;
+}
+
+.chooseuser {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding-top: 50px;
+  position: absolute;
+}
+
+h1 {
+  color: #c4174f;
+}
+
+.user-col {
+  flex-basis: 91%;
+  background: #fed7da;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 60px 5%;
+  box-sizing: border-box;
+  transition: 0.5s;
+  margin-right: 10%;
+  width: 30%;
+}
+.user-col:hover {
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+h3 {
+  color: #c4174f;
+}
+
+h4 {
+  font-size: medium;
+  color: #b8145f;
+}
+p {
+  color: #e55175;
+}
+
+.button-container {
+  margin: 10%;
+  display: flex;
+  align-items: center; /* Center vertically */
+}
+
+.event-box {
+  width: 70%;
+  border: 2px solid #cccccc;
+  border-radius: 10px;
+  text-align: center;
+  height: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.events {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+.event-image {
+  display: flex;
+  width: 20%;
+  float: left;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.event-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.event-description {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.event-time,
+.event-location {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.book-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.book-button:hover {
+  background-color: #45a049;
+}
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.filterData {
+  display: none;
+  width: 70%;
+  border: 2px solid #cccccc;
+  border-radius: 10px;
+  text-align: center;
+  height: 50%;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  color: #f2f2f0;
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Donor Homepage</title>
+    <!-- Add this script at the end of the page -->
+  </head>
+
+  <body>
+    <!-- this is the start of content -->
+    <section class="header">
+      <nav>
+        <a href="index.html"
+          ><img
+            src="https://cdn.glitch.global/2afdc074-1b74-4ebe-a01b-7e6b42b04ddf/Pink%20Bold%20Retro%20Aesthetic%20Makeup%20Artist%20Circle%20Logo.png?v=1697384041823"
+        /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="aboutUs.html">ABOUT US</a></li>
+            <li><a href="userpage.html">EVENTS</a></li>
+            <li><a href="donorPage.html">DONOR</a></li>
+            <li><a href="calendar.html">CALENDAR</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a> </a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+      <h2 class="Donor" style="font-size: 80px">Donor Info</h2>
+    </section>
+    <section class="header">
+      <!-- Navigation bar content -->
+    </section>
+
+    <section class="donor-info">
+      <h1>Thank you for Being a Donor!</h1>
+      <p>
+        Welcome to our donor landing page! This is where you can register an
+        event or donation. We appreciate your support &#9829;
+      </p>
+    </section>
+    <div class="donorContainer">
+      <section class="list-event">
+        <button class="donor-btn" onclick="openEventDialogue()">
+          Click to Register an Event
+        </button>
+      </section>
+
+      <div id="eventDialogue" class="dialogue">
+        <div class="dialogue-content">
+          <span class="close" onclick="closeDialogue('eventDialogue')"
+            >&times;</span
+          >
+          <form id="eventForm">
+            <label for="desc1">Create an event:</label><br />
+            <input
+              type="text"
+              id="title1"
+              name="eventName"
+              placeholder="Event Title"
+            /><br />
+            <input
+              type="text"
+              id="name1"
+              name="name"
+              placeholder="Your Name"
+            /><br />
+            <input
+              type="text"
+              id="desc1"
+              name="eventDescription"
+              placeholder="Short Event Description"
+            /><br />
+            <input
+              type="text"
+              id="location1"
+              name="eventLocation"
+              placeholder="Location"
+            /><br />
+            <input
+              type="text"
+              id="date1"
+              name="eventDate"
+              placeholder="Date"
+            /><br />
+            <input
+              type="text"
+              id="time1"
+              name="eventTime"
+              placeholder="Time"
+            /><br />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
+
+      <section class="list-event">
+        <button class="donor-btn" onclick="openDonationDialogue()">
+          Click to List Donation
+        </button>
+      </section>
+
+      <div id="dialogueBox2" class="dialogue">
+        <div class="dialogue-content">
+          <span class="close" onclick="closeDialogue('dialogueBox2')"
+            >&times;</span
+          >
+          <form id="donationForm">
+            <label for="selectQuestion">List a donation:</label><br />
+            <input
+              type="text"
+              id="title2"
+              name="donationItem"
+              placeholder="Donation Item"
+            /><br />
+            <input
+              type="text"
+              id="name2"
+              name="name"
+              placeholder="Your Name"
+            /><br />
+            <input
+              type="text"
+              id="desc2"
+              name="event"
+              placeholder="Amount available"
+            /><br />
+            <input
+              type="text"
+              id="location2"
+              name="event"
+              placeholder="pickup location"
+            /><br />
+            <input
+              type="text"
+              id="date2"
+              name="event"
+              placeholder="Date"
+            /><br />
+            <input
+              type="text"
+              id="time2"
+              name="event"
+              placeholder="Time"
+            /><br />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("eventForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const eventTitle = document.getElementById("title1").value;
+          const eventDescription = document.getElementById("desc1").value;
+          const eventLocation = document.getElementById("location1").value;
+          const eventDate = document.getElementById("date1").value;
+          const eventTime = document.getElementById("time1").value;
+
+          const eventData = {
+            eventTitle,
+            eventDescription,
+            eventLocation,
+            eventDate,
+            eventTime,
+          };
+
+          localStorage.setItem("eventData", JSON.stringify(eventData));
+          window.location.href = "userpage.html";
+        });
+
+      document
+        .getElementById("donationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const donationTitle = document.getElementById("title2").value;
+          const donationDescription = document.getElementById("desc2").value;
+          const donationLocation = document.getElementById("location2").value;
+          const donationDate = document.getElementById("date2").value;
+          const donationTime = document.getElementById("time2").value;
+
+          const donationData = {
+            donationTitle,
+            donationDescription,
+            donationLocation,
+            donationDate,
+            donationTime,
+          };
+
+          localStorage.setItem("donationData", JSON.stringify(donationData));
+          window.location.href = "userpage.html";
+        });
+
+      function openEventDialogue() {
+        var dialogueBox = document.getElementById("eventDialogue");
+        dialogueBox.style.display = "block";
+      }
+
+      function openDonationDialogue() {
+        var dialogueBox = document.getElementById("dialogueBox2");
+        dialogueBox.style.display = "block";
+      }
+
+      function closeDialogue(dialogueId) {
+        var dialogueBox = document.getElementById(dialogueId);
+        dialogueBox.style.display = "none";
+      }
+    </script>
+    <script>
+      document
+        .getElementById("eventForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const eventTitle = document.getElementById("title1").value;
+          const eventDescription = document.getElementById("desc1").value;
+          const eventLocation = document.getElementById("location1").value;
+          const eventDate = document.getElementById("date1").value;
+          const eventTime = document.getElementById("time1").value;
+
+          const eventData = {
+            eventTitle,
+            eventDescription,
+            eventLocation,
+            eventDate,
+            eventTime,
+          };
+
+          // Retrieve existing events from localStorage or initialize an empty array
+          const existingEvents =
+            JSON.parse(localStorage.getItem("events")) || [];
+
+          // Add the new event to the array
+          existingEvents.push(eventData);
+
+          // Store the updated events array in localStorage
+          localStorage.setItem("events", JSON.stringify(existingEvents));
+
+          // Redirect to the user page
+          window.location.href = "userpage.html";
+        });
+    </script>
+  </body>
+</html>

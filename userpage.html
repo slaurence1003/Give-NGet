@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="userStyle.css" />
+
+    <title>Event Finder</title>
+
+    <!-- Add this script to the user page to retrieve and display the event data -->
+  </head>
+
+  <body>
+    <section class="header">
+      <nav>
+        <a href="index.html"
+          ><img
+            src="https://cdn.glitch.global/2afdc074-1b74-4ebe-a01b-7e6b42b04ddf/Pink%20Bold%20Retro%20Aesthetic%20Makeup%20Artist%20Circle%20Logo.png?v=1697384041823"
+        /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="aboutUs.html">ABOUT US</a></li>
+            <li><a href="userpage.html">EVENTS</a></li>
+            <li><a href="donorPage.html">DONOR</a></li>
+            <li><a href="calendar.html">CALENDAR</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a> </a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+      <h2 class="User" style="font-size: 80px">Events</h2>
+    </section>
+    <section class="header">
+      <!-- Navigation bar content -->
+    </section>
+    <br />
+    <h1 style="margin-top: 10pt; text-align: center; font-size: 30pt">
+      Your Events and Donations
+    </h1>
+    <div style="margin-top: 3%; margin-right: 2%" class="button-container">
+      <div class="user-col">
+        <section class="user-events">
+          <div id="eventDetails"></div>
+          <div id="donationDetails"></div>
+        </section>
+      </div>
+    </div>
+
+  
+    <script>
+      const eventDataJSON = localStorage.getItem("eventData");
+      const donationDataJSON = localStorage.getItem("donationData");
+
+      if (eventDataJSON) {
+        const eventData = JSON.parse(eventDataJSON);
+        const eventDetails = document.getElementById("eventDetails");
+        eventDetails.innerHTML = `
+    	<center><h4 style="font-size: x-large">${eventData.eventTitle}</h4></center>
+    	<p><strong>Event Description:</strong> ${eventData.eventDescription}</p>
+    	<p><strong>Event Location:</strong> ${eventData.eventLocation}</p>
+    	<p><strong>Date:</strong> ${eventData.eventDate}</p>
+    	<p><strong>Time:</strong> ${eventData.eventTime}</p>
+  	`;
+      }
+
+      if (donationDataJSON) {
+        const donationData = JSON.parse(donationDataJSON);
+        const donationDetails = document.getElementById("donationDetails");
+        donationDetails.innerHTML = `
+    	<center><h4 style="font-size: x-large">${donationData.donationTitle}</h4></center>
+    	<p><strong>Donation Description:</strong> ${donationData.donationDescription}</p>
+    	<p><strong>Donation Location:</strong> ${donationData.donationLocation}</p>
+    	<p><strong>Date:</strong> ${donationData.donationDate}</p>
+    	<p><strong>Time:</strong> ${donationData.donationTime}</p>
+  	`;
+      }
+    </script>
+
+    <!--
+    <script>
+      const eventsJSON = localStorage.getItem("events");
+      const events = JSON.parse(eventsJSON) || [];
+
+      const eventDetails = document.getElementById("eventDetails");
+
+      if (events.length === 0) {
+        eventDetails.innerHTML = "<p>No events available.</p>";
+      } else {
+        events.forEach(function (eventData, index) {
+          eventDetails.innerHTML += `
+          <center><h4 style="font-size: x-large">${eventData.eventTitle}</h4></center>
+          <p><strong>Event Description:</strong> ${eventData.eventDescription}</p>
+          <p><strong>Event Location:</strong> ${eventData.eventLocation}</p>
+          <p><strong>Date:</strong> ${eventData.eventDate}</p>
+          <p><strong>Time:</strong> ${eventData.eventTime}</p>
+        `;
+        });
+      }
+    </script> -->
+  </body>
+</html>
