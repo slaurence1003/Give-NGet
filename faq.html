@@ -1,0 +1,89 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>Home</title>
+  </head>
+  <body>
+    <!-- this is the start of content -->
+    <section class="header">
+      <nav>
+        <a href="index.html"
+          ><img
+            src="https://cdn.glitch.global/2afdc074-1b74-4ebe-a01b-7e6b42b04ddf/Pink%20Bold%20Retro%20Aesthetic%20Makeup%20Artist%20Circle%20Logo.png?v=1697384041823"
+        /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="aboutUs.html">ABOUT US</a></li>
+            <li><a href="userpage.html">EVENTS</a></li>
+            <li><a href="donorPage.html">DONOR</a></li>
+            <li><a href="calendar.html">CALENDAR</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+      <div class="Welcome">
+        <h1 class="Welcome" style="font-size: 80px">FAQ</h1>
+        <p class="Welcome">These are some of our most asked questions</p>
+        <br />
+      </div>
+    </section>
+
+    <!--- user/donor pages --->
+    <br />
+
+    <button class="question">What can I donate?</button>
+    <div class="answer">
+      <p>
+        We accept any spare items, but especially focus on products to support
+        women, non-binary people, children, and parents. Some example items are: diapers, period
+        products, baby formula, clothing, bras, etc.
+      </p>
+    </div>
+
+    <button class="question">Where are you accepting donations?</button>
+    <div class="answer">
+      <p>Anywhere!</p>
+    </div>
+
+    <button class="question">Who can recieve donations?</button>
+    <div class="answer">
+      <p>Anyone who needs any products.</p>
+    </div>
+
+    <button class="question">Is Give 'N Get a nonprofit?</button>
+    <div class="answer">
+      <p>Yes, we are a registered 501c.</p>
+    </div>
+    
+    <button class="question">Where was Give 'N Get founded?</button>
+    <div class="answer">
+      <p>We were founded in Boston, MA.</p>
+    </div>
+
+    <script>
+      var questions = document.getElementsByClassName("question");
+      var i;
+
+      for (i = 0; i < questions.length; i++) {
+        questions[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var answer = this.nextElementSibling;
+          if (answer.style.display === "block") {
+            answer.style.display = "none";
+          } else {
+            answer.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<!---- https://docs.google.com/document/d/1fX7CkCrt3BTaRYOy-5nsScghF8ZIqQNlQLlgq7yIEB4/edit?usp=sharing ---->
